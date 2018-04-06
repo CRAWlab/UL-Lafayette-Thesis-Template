@@ -4,13 +4,11 @@
 
 _Forrest Montgomery Jul 17, 2017_
 
-_Modified by Daniel Newman Apr 4, 2018_
-
 This latex template attempts to aid in the formatting of a ULL style thesis.
 
 Some helpful latex tips:
 
-Give up on getting personally stylistic with this thesis. The Grad School wants the document formatted according to the [guidelines](http://www.ucs.louisiana.edu/~dpd0909/4/Guidelines4.html#p=1). However, you only need to provide one copy of the correctly formatted thesis.
+Give up on getting personally stylistic with this thesis. The Grad School wants the document formatted according to the [guidelines](https://gradschool.louisiana.edu/sites/gradschool/files/Guidelines%20final%20-%20Revised%20Edition%20August%202009%20-%20Updated%20January%202015.pdf). However, you only need to provide one copy of the correctly formatted thesis.
 
 ### Creating Figures
 

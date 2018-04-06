@@ -4,11 +4,10 @@
 % These are the various parameters used to create the correctly formatted
 % ULL thesis. 
 %
-% Created by: Forrest Montgomery Jul 17, 2017
+% Forrest Montgomery Jul 17, 2017
 %
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % Changes the page numbers in TOC to normal font
 \renewcommand{\cftchappagefont}{\normalfont}
 
@@ -24,32 +23,16 @@
 % Places Table and Figure in front 
 % for List of Figures and Tables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\cftfigpresnum}{\bfseries Figure }
-\renewcommand{\cfttabpresnum}{\bfseries Table }
+\renewcommand{\cftfigpresnum}{Figure }
+\renewcommand{\cfttabpresnum}{Table }
 \setlength{\cftfignumwidth}{5em}
 \setlength{\cfttabnumwidth}{5em}
-
-\setlength\parindent{0.5in}
-
 % remove indentation from figures in lof
 \setlength{\cftfigindent}{0pt}
 % remove indentation from tables in lot
 \setlength{\cfttabindent}{0pt}
-
-% Ensure proper numbering of the sections and subsections
-\renewcommand{\thesection}{\thechapter.\@arabic\c@section}
-\renewcommand{\thesubsection}{\thesection.\@arabic\c@subsection}
-
-% Add a period after the subsection label
-\newcommand{\addperiod}[1]{#1.}
-\titleformat{\subsection}[runin]
-  {\normalfont\bfseries}
-  {\thesubsection}
-  {1em}
-  {\addperiod}
-
 % Centers the TOC title
-\renewcommand{\contentsname}{\hfill\bfseries\normalsize Table of Contents\hfill}   
+\renewcommand{\contentsname}{\hfill\bfseries\normalsize\Makeuppercase TABLE OF CONTENTS\hfill}   
 \renewcommand{\cftaftertoctitle}{\hfill}
 
 % adds leader dots from chapter titles to page numbers
@@ -57,18 +40,14 @@
 
 % Making the sections and subsections Uppercase
 \makeatletter
-\patchcmd{\l@section}{#1}{\bfseries #1}{}{}
-\patchcmd{\l@subsection}{#1}{\bfseries #1}{}{}
+\patchcmd{\l@section}{#1}{\MakeUppercase{#1}}{}{}
+\patchcmd{\l@subsection}{#1}{\MakeUppercase{#1}}{}{}
 \makeatother
 
 % Gets rid of whitespace above the TOC LOF and LOT
 \setlength{\cftbeforetoctitleskip}{0pt}
 \setlength{\cftbeforeloftitleskip}{0pt}
 \setlength{\cftbeforelottitleskip}{0pt}
-
-% Add a period after figures and tables in the \contents pages
-\renewcommand{\cftfigaftersnum}{. }
-\renewcommand{\cfttabaftersnum}{. }
 
 % Set the distance below the TOC the text will start
 \setlength{\cftaftertoctitleskip}{5pt}
@@ -80,7 +59,7 @@
 \renewcommand{\cftloftitlefont}{\hspace*{\fill}\Huge\bfseries}
 \renewcommand{\cftafterloftitle}{\hspace*{\fill}}
 % Suppresses the page numbers on everything till the second page of TOC
-%\tocloftpagestyle{empty}
+\tocloftpagestyle{empty}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
