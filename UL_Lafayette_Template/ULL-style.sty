@@ -66,9 +66,18 @@
 \setlength{\cftbeforeloftitleskip}{0pt}
 \setlength{\cftbeforelottitleskip}{0pt}
 
+\setlength{\cftfigindent}{0pt}  % remove indentation from figures in lof
+\setlength{\cfttabindent}{0pt}  % remove indentation from tables in lot
+
 % Add a period after figures and tables in the \contents pages
-\renewcommand{\cftfigaftersnum}{. }
-\renewcommand{\cfttabaftersnum}{. }
+\renewcommand{\cftfigaftersnum}{.}
+\renewcommand{\cfttabaftersnum}{.}
+
+\cftsetindents{figure}{0em}{5.5em}
+\cftsetindents{table}{0em}{5.5em}
+
+\setlength\cftbeforefigskip{12pt}
+\setlength\cftbeforetabskip{12pt}
 
 % Set the distance below the TOC the text will start
 \setlength{\cftaftertoctitleskip}{5pt}

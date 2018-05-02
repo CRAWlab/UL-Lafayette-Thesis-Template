@@ -1573,7 +1573,7 @@ openright,doublespaced,normalmargins,final}
   \phantomsection%
   \addcontentsline{toc}{chapter}%
     {\texorpdfstring{\textbf{Abstract}}{Abstract}}
-  \thispagestyle{empty}%
+  %\thispagestyle{empty}%
    \begin{singlespaced}%
     %\begin{center}%
         %\noindent
@@ -1626,7 +1626,7 @@ openright,doublespaced,normalmargins,final}
   \end{center}
   \vskip -0.1in
   \begingroup
-  \thispagestyle{empty}
+  %\thispagestyle{empty}
   \indent \indent
 }{\par\endgroup}%Biographical Sketch
 %
@@ -1660,12 +1660,12 @@ openright,doublespaced,normalmargins,final}
   \typeout{*****************    Dedication    ******************}
   \if@openright\cleardoublepage\else\clearpage\fi 
   \phantomsection%
-  \addcontentsline{toc}{chapter}%
-    {\texorpdfstring{\textbf{Dedication}}{Dedication}}
-  %\ifdedicationheading
+  %\addcontentsline{toc}{chapter}%
+  %  {\texorpdfstring{\textbf{Dedication}}{Dedication}}
+  \ifdedicationheading
         \chapter*{\normalsize{\textbf{Dedication}}}
-  %\else
-    %\chapter*{}
+  \else
+    \chapter*{}
   \fi
   %\vskip -0.25in
   \vspace*{-\baselineskip}
@@ -1703,11 +1703,11 @@ openright,doublespaced,normalmargins,final}
   \phantomsection%
   \addcontentsline{toc}{chapter}%
     {\texorpdfstring{\textbf{Epigraph}}{Epigraph}}
-  %\ifdedicationheading
+  \ifdedicationheading
     \chapter*{\normalsize{\textbf{Epigraph}}}
-  %\else
-   % \chapter*{}
-  %\fi
+  \else
+    \chapter*{}
+  \fi
   \vspace{-0.3\baselineskip}
   \begingroup
   %\epigraphtop
@@ -2166,12 +2166,19 @@ openright,doublespaced,normalmargins,final}
   \gt@dottedtocline{5}{12.5em}{6em}}
 \renewcommand*\l@figure{%
   \let\gt@@toclineskip=\gt@beforefigskip@value
-  \gt@dottedtocline{1}{1.5em}{2.3em}}% this is indented 1.5em so that 
+  \gt@dottedtocline{1}{1.5em}{2.3em}
+  \@afterindenttrue
+	\let\@cftbsnum \cftfigpresnum
+	\let\@cftasnum \cftfigaftersnum
+	\let\@cftasnumb \cftfigaftersnumb
+  }% this is indented 1.5em so that 
                                      % if you wish, you can a 'Figure' header
                                      % centered above the numbers using \addtocontents
 \renewcommand*\l@table{%
   \let\gt@@toclineskip=\gt@beforetableskip@value
-  \gt@dottedtocline{1}{1.5em}{2.3em}}% ditto
+  \gt@dottedtocline{1}{1.5em}{2.3em}
+  \@afterindenttrue
+  }% ditto
 
 \newlength{\gt@tmpa}
 \newcommand{\do@figurespage}{%
@@ -2404,13 +2411,13 @@ openright,doublespaced,normalmargins,final}
 \newcommand{\labelchaptersintableofcontents}[1][CHAPTERS]{%
   \addtocontents{toc}{\protect\orig@contentsline{part}{#1}{}}
 }
-\newcommand{\labelappendicesintableofcontents}[1][Appendices]{%
+\newcommand{\labelappendicesintableofcontents}[1][APPENDICES]{%
   \addtocontents{toc}{\protect\orig@contentsline{part}{#1}{}}%
 }
 
 %\renewcommand{\chaptername}{\normalsize{CHAPTER}}
 \renewcommand{\chaptername}{\normalsize{}}
-\renewcommand{\appendixname}{Appendix}
+\renewcommand{\appendixname}{APPENDIX}
 \renewcommand{\thepart}{\@Roman\c@part}
 \renewcommand{\partname}{Volume}
 
@@ -2681,7 +2688,7 @@ openright,doublespaced,normalmargins,final}
     \par\nobreak
     %\vskip -0.25in
     \interlinepenalty\@M
-    \centering \bfseries {#1}\par\nobreak
+    \centering \bfseries \texfbf{#1}\par\nobreak
     %\vskip 35\p@
   }
 }

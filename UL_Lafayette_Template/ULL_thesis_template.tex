@@ -24,6 +24,14 @@
 \usepackage{tocloft}
 \usepackage{indentfirst}
 \usepackage{etoolbox}
+
+% This command is required to ensure proper section headings in 
+% Linux-based LaTeX distributions. 
+%\makeatletter
+%\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+%\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+%\makeatother
+
 \definecolor{1c1}{RGB}{188,162,6}
 \usepackage{ULL-style}
 \usepackage[shortcuts]{extdash}
@@ -135,8 +143,8 @@
 %%%%%%%%%%%%%%%%
 % Appendices
 %%%%%%%%%%%%%%%%
-\appendix
-\input{appendix.tex}
+%\appendix
+%\input{appendix.tex}
 
 %%%%%%%%%%%%%%%%
 % References
