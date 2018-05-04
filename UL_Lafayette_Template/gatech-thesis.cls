@@ -1586,8 +1586,8 @@ openright,doublespaced,normalmargins,final}
         %\noindent Pages in Thesis \@totalpagesinthesis; Words in Abstract: \@wordsinabstract
        %\ \\%
        \begin{list}{}
-       {\leftmargin=1.5em \itemindent=-1.5em \itemsep=-1em}
-        \item \@lastnamefirstname\ \@undergrad, \@undergraduniversity, \@undergradyear; \@degree, University of Louisiana at Lafayette, \@submitdate \\%%
+       {\leftmargin=3.0em \itemindent=-3.0em \itemsep=-1em}
+        \item \@lastnamefirstname.\ \@undergrad, \@undergraduniversity, \@undergradyear; \@degree, University of Louisiana at Lafayette, \@submitdate \\%%
         \item Major: \@major\\
         \item Title of Thesis: \@title\\
         %\ \\%
@@ -1660,8 +1660,8 @@ openright,doublespaced,normalmargins,final}
   \typeout{*****************    Dedication    ******************}
   \if@openright\cleardoublepage\else\clearpage\fi 
   \phantomsection%
-  %\addcontentsline{toc}{chapter}%
-  %  {\texorpdfstring{\textbf{Dedication}}{Dedication}}
+  \addcontentsline{toc}{chapter}%
+    {\texorpdfstring{\textbf{Dedication}}{Dedication}}
   \ifdedicationheading
         \chapter*{\normalsize{\textbf{Dedication}}}
   \else
@@ -1689,7 +1689,7 @@ openright,doublespaced,normalmargins,final}
   \vspace*{-2\baselineskip}
   \begingroup
   \indent\indent 
-  \thispagestyle{empty}
+  %\thispagestyle{empty}
 }{\par\endgroup}%Acknowledgements
 %
 %% \begin{epigraph}...\end{epigraph} formats a
@@ -2031,7 +2031,7 @@ openright,doublespaced,normalmargins,final}
   \renewcommand{\tocpdfbookmarkstring}{#1}
 }
 \newcommand{\setlofstring}[1]{%
-  \renewcommand{\gtlistfigurename}{#1}
+  \renewcommand{\gtlistfigurename}{\textbf{#1}}
   \renewcommand{\listfigurename}{\normalsize\bfseries{#1}}
   \renewcommand{\lofcontentlinestring}{%
     \textbf{#1}
