@@ -27,8 +27,8 @@
 %% if there are significant LaTeX syntax errors I apologize. I gave this my best shot.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\gtthesisversion}{1.8}% current version number
-\newcommand{\gtthesisupdated}{2010/07/02}% date of last change(s)
+\newcommand{\gtthesisversion}{1.9}% current version number
+\newcommand{\gtthesisupdated}{2018/04/04}% date of last change(s)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -57,6 +57,10 @@
 %%
 %%  REVISION HISTORY:
 %%
+%%	v1.9: 2018-Apr-04 Daniel M. Newman - danielnewman09@gmail.com
+%%		* Updated this template to be compatible with currrent (Fall 2017)
+%%		  Guidelines for the Preparation and Submission of Theses at ULL
+%%		  http://www.ucs.louisiana.edu/~dpd0909/4/Guidelines4.html#p=1
 %%  v1.8: 2010-Jul-02 Mitchel T. Keller
 %%      * Change font used in Table of Contents for volumes (parts).
 %%      * Add support for abstract page meeting UMI requirements.
@@ -854,6 +858,7 @@
 \DeclareOption{widemargins}{\renewcommand{\@marginsize}{2}}
 \DeclareOption{extrawidemargins}{\renewcommand{\@marginsize}{3}}
 \DeclareOption{oldmargins}{\renewcommand{\@marginsize}{4}}
+\DeclareOption{ullmargins}{\renewcommand{\@marginsize}{5}}
 
 %% Point Size options: change current setting.
 %
@@ -1503,7 +1508,7 @@ openright,doublespaced,normalmargins,final}
       \vspace*{0.5in}
       \begin{center}
         \begin{doublespaced}{\large\bfseries%
-          \expandafter{\Makeuppercase{\partname}\space\Makeuppercase{\thepart}}\\
+          \expandafter{\textbf{\partname}\space\textbf{\thepart}}\\
           \ifx\@empty#1\@empty\else%
             \expandafter{#1}\\
           \fi%
@@ -1518,7 +1523,7 @@ openright,doublespaced,normalmargins,final}
       \vspace*{0.5in}
       \begin{center}
         \begin{doublespaced}{\Huge\bfseries%
-          \expandafter{\Makeuppercase{\partname}\space\Makeuppercase{\thepart}}\\
+          \expandafter{\textbf{\partname}\space\textbf{\thepart}}\\
           \ifx\@empty#1\@empty\else%
             \expandafter{#1}\\
           \fi%
@@ -1567,8 +1572,8 @@ openright,doublespaced,normalmargins,final}
   \addtocounter{page}{0} 
   \phantomsection%
   \addcontentsline{toc}{chapter}%
-    {\texorpdfstring{\Makeuppercase{\normalfont{Abstract}}}{Abstract}}
-  \thispagestyle{empty}%
+    {\texorpdfstring{\textbf{Abstract}}{Abstract}}
+  %\thispagestyle{empty}%
    \begin{singlespaced}%
     %\begin{center}%
         %\noindent
@@ -1581,8 +1586,8 @@ openright,doublespaced,normalmargins,final}
         %\noindent Pages in Thesis \@totalpagesinthesis; Words in Abstract: \@wordsinabstract
        %\ \\%
        \begin{list}{}
-       {\leftmargin=1.5em \itemindent=-1.5em \itemsep=-1em}
-        \item \@lastnamefirstname\ \@undergrad, \@undergraduniversity, \@undergradyear; \@degree, University of Louisiana at Lafayette, \@submitdate \\%%
+       {\leftmargin=3.0em \itemindent=-3.0em \itemsep=-1em}
+        \item \@lastnamefirstname.\ \@undergrad, \@undergraduniversity, \@undergradyear; \@degree, University of Louisiana at Lafayette, \@submitdate \\%%
         \item Major: \@major\\
         \item Title of Thesis: \@title\\
         %\ \\%
@@ -1594,7 +1599,7 @@ openright,doublespaced,normalmargins,final}
     \end{singlespaced}%
     \vskip 0.25in
     \begin{center}
-    ABSTRACT
+    \textbf{Abstract}
     \end{center}
     \vskip -0.4in
   \begingroup%
@@ -1614,14 +1619,14 @@ openright,doublespaced,normalmargins,final}
   \if@openright\cleardoublepage\else\clearpage\fi 
   \phantomsection%
   \addcontentsline{toc}{chapter}%
-    {\texorpdfstring{\Makeuppercase{Biographical Sketch}}{Biographical Sketch}}
+    {\texorpdfstring{\textbf{Biographical Sketch}}{Biographical Sketch}}
   %\chapter*{\MakeUppercase{Biographical Sketch}}
   \begin{center}
-  {\bfseries{\Makeuppercase{Biographical Sketch}}}
+  {\bfseries{\textbf{Biographical Sketch}}}
   \end{center}
   \vskip -0.1in
   \begingroup
-  \thispagestyle{empty}
+  %\thispagestyle{empty}
   \indent \indent
 }{\par\endgroup}%Biographical Sketch
 %
@@ -1634,8 +1639,8 @@ openright,doublespaced,normalmargins,final}
   \if@openright\cleardoublepage\else\clearpage\fi 
   \phantomsection%
   \addcontentsline{toc}{chapter}%
-    {\texorpdfstring{\Makeuppercase{Summary}}{Summary}}
-  \chapter*{\MakeUppercase{Summary}}
+    {\texorpdfstring{\textbf{Summary}}{Summary}}
+  \chapter*{\textbf{Summary}}
   \vskip 0.5in
   \begingroup
     \hspace*{2.5em}
@@ -1656,11 +1661,11 @@ openright,doublespaced,normalmargins,final}
   \if@openright\cleardoublepage\else\clearpage\fi 
   \phantomsection%
   \addcontentsline{toc}{chapter}%
-    {\texorpdfstring{\Makeuppercase{Dedication}}{Dedication}}
-  %\ifdedicationheading
-        \chapter*{\normalsize{\Makeuppercase{Dedication}}}
-  %\else
-    %\chapter*{}
+    {\texorpdfstring{\textbf{Dedication}}{Dedication}}
+  \ifdedicationheading
+        \chapter*{\normalsize{\textbf{Dedication}}}
+  \else
+    \chapter*{}
   \fi
   %\vskip -0.25in
   \vspace*{-\baselineskip}
@@ -1678,13 +1683,13 @@ openright,doublespaced,normalmargins,final}
   \if@openright\cleardoublepage\else\clearpage\fi 
   \phantomsection%
   \addcontentsline{toc}{chapter}%
-    {\texorpdfstring{\Makeuppercase{Acknowledgments}}{Acknowledgments}}
-  \chapter*{\normalsize{\Makeuppercase{Acknowledgments}}}
+    {\texorpdfstring{\textbf{Acknowledgments}}{Acknowledgments}}
+  \chapter*{\normalsize{\textbf{Acknowledgments}}}
   %\vskip -0.5in
   \vspace*{-2\baselineskip}
   \begingroup
   \indent\indent 
-  \thispagestyle{empty}
+  %\thispagestyle{empty}
 }{\par\endgroup}%Acknowledgements
 %
 %% \begin{epigraph}...\end{epigraph} formats a
@@ -1697,12 +1702,12 @@ openright,doublespaced,normalmargins,final}
   \if@openright\cleardoublepage\else\clearpage\fi 
   \phantomsection%
   \addcontentsline{toc}{chapter}%
-    {\texorpdfstring{\Makeuppercase{Epigraph}}{Epigraph}}
-  %\ifdedicationheading
-    \chapter*{\normalsize{\Makeuppercase{Epigraph}}}
-  %\else
-   % \chapter*{}
-  %\fi
+    {\texorpdfstring{\textbf{Epigraph}}{Epigraph}}
+  \ifdedicationheading
+    \chapter*{\normalsize{\textbf{Epigraph}}}
+  \else
+    \chapter*{}
+  \fi
   \vspace{-0.3\baselineskip}
   \begingroup
   %\epigraphtop
@@ -1717,8 +1722,8 @@ openright,doublespaced,normalmargins,final}
   \if@openright\cleardoublepage\else\clearpage\fi 
   \phantomsection%
   \addcontentsline{toc}{chapter}%
-    {\texorpdfstring{\Makeuppercase{Preface}}{Preface}}
-  \chapter*{\MakeUppercase{Preface}}
+    {\texorpdfstring{\textbf{Preface}}{Preface}}
+  \chapter*{\textbf{Preface}}
   \vskip 0.5in
   \begingroup
 }{\par\endgroup}%preface
@@ -1986,9 +1991,9 @@ openright,doublespaced,normalmargins,final}
   \if@openright\cleardoublepage\else\clearpage\fi 
   \phantomsection%
   \addcontentsline{toc}{chapter}%
-    {\texorpdfstring{\Makeuppercase{#1}}{#1}}
+    {\texorpdfstring{\textbf{#1}}{#1}}
   \newlinestretch{\@spacing}
-  \chapter*{\MakeUppercase{#1}}
+  \chapter*{\textbf{#1}}
   \vskip 0.5in
 }
 \newcommand{\afterpreface}{%
@@ -2019,25 +2024,27 @@ openright,doublespaced,normalmargins,final}
 
 \newcommand{\settocstring}[1]{%
   \renewcommand{\gtcontentsname}{#1}
-  \renewcommand{\contentsname}{\normalsize{\Makeuppercase{#1}}\hfill}
+  \renewcommand{\contentsname}{\normalsize{\textbf{#1}}\hfill}
   \renewcommand{\toccontentlinestring}{%
-    \texorpdfstring{\Makeuppercase{#1}}{#1}
+    \textbf{#1}
   }
   \renewcommand{\tocpdfbookmarkstring}{#1}
 }
 \newcommand{\setlofstring}[1]{%
-  \renewcommand{\gtlistfigurename}{#1}
-  \renewcommand{\listfigurename}{\normalsize{\Makeuppercase{#1}}}
+  \renewcommand{\gtlistfigurename}{\textbf{#1}}
+  \renewcommand{\listfigurename}{\normalsize\bfseries{#1}}
   \renewcommand{\lofcontentlinestring}{%
-    \texorpdfstring{\Makeuppercase{#1}}{#1}
+    \textbf{#1}
+    %\texorpdfstring{\Makeuppercase{#1}}{#1}
   }
   \renewcommand{\lofpdfbookmarkstring}{#1}
 }
 \newcommand{\setlotstring}[1]{%
   \renewcommand{\gtlisttablename}{#1}
-  \renewcommand{\listtablename}{\normalsize{\Makeuppercase{#1}}}
+  \renewcommand{\listtablename}{\normalsize{\textbf{#1}}}
   \renewcommand{\lotcontentlinestring}{%
-    \texorpdfstring{\Makeuppercase{#1}}{#1}
+    \textbf{#1}
+    %\texorpdfstring{\Makeuppercase{#1}}{#1}
   }
   \renewcommand{\lotpdfbookmarkstring}{#1}
 }
@@ -2159,12 +2166,19 @@ openright,doublespaced,normalmargins,final}
   \gt@dottedtocline{5}{12.5em}{6em}}
 \renewcommand*\l@figure{%
   \let\gt@@toclineskip=\gt@beforefigskip@value
-  \gt@dottedtocline{1}{1.5em}{2.3em}}% this is indented 1.5em so that 
+  \gt@dottedtocline{1}{1.5em}{2.3em}
+  \@afterindenttrue
+	\let\@cftbsnum \cftfigpresnum
+	\let\@cftasnum \cftfigaftersnum
+	\let\@cftasnumb \cftfigaftersnumb
+  }% this is indented 1.5em so that 
                                      % if you wish, you can a 'Figure' header
                                      % centered above the numbers using \addtocontents
 \renewcommand*\l@table{%
   \let\gt@@toclineskip=\gt@beforetableskip@value
-  \gt@dottedtocline{1}{1.5em}{2.3em}}% ditto
+  \gt@dottedtocline{1}{1.5em}{2.3em}
+  \@afterindenttrue
+  }% ditto
 
 \newlength{\gt@tmpa}
 \newcommand{\do@figurespage}{%
@@ -2452,8 +2466,8 @@ openright,doublespaced,normalmargins,final}
     %{\thispagestyle{tcplain}}
     {\thispagestyle{empty}}
   \else
-    %{\thispagestyle{plain}}%report.cls temporarily resets pagestyle to plain. Do the same.
-    {\thispagestyle{empty}}
+    {\thispagestyle{plain}}%report.cls temporarily resets pagestyle to plain. Do the same.
+    %{\thispagestyle{empty}}
 
   \fi 
   \settocdepth{\chapapp@tocdepth}
@@ -2468,12 +2482,12 @@ openright,doublespaced,normalmargins,final}
     \typeout{\@chapapp\space\thegtchapter.}%
     \addcontentsline{toc}{chapter}%
       {\texorpdfstring%
-        {\protect\numberline{\thegtchapter}\Makeuppercase{#1}}%
+        {\protect\numberline{\thegtchapter}\textbf{#1}}%
         %{Chapter \thechapter\space\textemdash\space#1}}%
         {\thechapter\space\textemdash\space#1}}%
   \else
     \addcontentsline{toc}{chapter}%
-      {\texorpdfstring{\Makeuppercase{#1}}{#1}}%
+      {\texorpdfstring{\textbf{#1}}{#1}}%
   \fi
   \chaptermark{#1}%
   \if@twocolumn
@@ -2496,7 +2510,7 @@ openright,doublespaced,normalmargins,final}
     %\vskip -0.25in
     \vskip -0.37in
     \interlinepenalty\@M
-    \centering \MakeUppercase{#1}\par\nobreak
+    \centering \textbf{#1}\par\nobreak
     %\vskip 30\p@
     \vskip 0.08in
   }
@@ -2562,12 +2576,12 @@ openright,doublespaced,normalmargins,final}
       {\texorpdfstring%
         {\noindent\protect\makebox[\@tocrmarg]{}%
           {\protect\makebox[\textwidth - \@tocrmarg - \@tocrmarg]% dadgum \hfill doesn't work without mbox...
-          {\hfill\Makeuppercase{\partname}\space\protect{\thepart}\hspace{1em}\Makeuppercase{#1}\hfill}}}%
+          {\hfill\textbf{\partname}\space\protect{\thepart}\hspace{1em}\textbf{#1}\hfill}}}%
         {Volume \thepart}}%
   \else
     \addcontentsline{toc}{part}%
     {\texorpdfstring%
-      {\Makeuppercase{#1}}%
+      {\textbf{#1}}%
       {#1}}%
   \fi
   \markboth{}{}
@@ -2609,22 +2623,24 @@ openright,doublespaced,normalmargins,final}
   {-3.25ex \@plus -1ex \@minus -.2ex}%
   %{1.5ex \@minus-.5ex}%
   {1.5ex \@plus .2ex}
-  {\newlinestretch{1}\normalfont\MakeUppercase}
+  {\newlinestretch{1}\bfseries}%
   %{\newlinestretch{1}\normalfont\large\bfseries\itshape}
 }
 \renewcommand{\subsection}{%
-  \@startsection{subsection}{2}{\z@}%
+  \@startsection{subsection}{2}{0.5in}%
   {-3.25ex\@plus -1ex \@minus -.2ex}%
-  {1.5ex \@plus .2ex}%
+  {-5pt}
+  %{1.5ex \@plus .2ex}%
   %{\newlinestretch{1}\normalfont\normalsize\bfseries}
-  {\newlinestretch{1}\normalfont\normalsize\MakeUppercase}
+  {\bfseries\normalsize}%
 }
 \renewcommand{\subsubsection}{%
   \@startsection{subsubsection}{3}{0.25in}%
   {-3.25ex\@plus -1ex \@minus -.2ex}%
-  {1.5ex \@plus .2ex}%
+  {-0.5in}%
+  %{1.5ex \@plus .2ex}%
   %{\newlinestretch{1}\normalfont\normalsize\itshape}
-  {\newlinestretch{1}\normalfont\normalsize\MakeUppercase}
+  {\bfseries\normalsize}%
 }
 
 \renewcommand{\appendix}{%
@@ -2650,10 +2666,10 @@ openright,doublespaced,normalmargins,final}
     \typeout{\@chapapp\space\thechapter.}%
     \addcontentsline{toc}{chapter}%
     {\texorpdfstring%
-      {\@chapapp\space\protect\numberline{\thechapter}\space---\space\Makeuppercase{#1}}%
+      {\@chapapp\space\protect\numberline{\thechapter}\space---\space\textbf{#1}}%
       {Appendix\space\thechapter\space\textemdash\space#1}}%must specify "---" explicitly here
   \else
-    \addcontentsline{toc}{chapter}{\Makeuppercase{#1}}%
+    \addcontentsline{toc}{chapter}{\textbf{#1}}%
   \fi
   \chaptermark{#1}%
   \if@twocolumn
@@ -2672,7 +2688,7 @@ openright,doublespaced,normalmargins,final}
     \par\nobreak
     %\vskip -0.25in
     \interlinepenalty\@M
-    \centering \bfseries \MakeUppercase{#1}\par\nobreak
+    \centering \bfseries \texfbf{#1}\par\nobreak
     %\vskip 35\p@
   }
 }
@@ -2803,16 +2819,16 @@ openright,doublespaced,normalmargins,final}
 \newcommand{\references}{%
   \ifbibpage
     \typeout{*****************     References    ******************}
-    \newlinestretch{1.0}
+    \newlinestretch{1.0}%
     \if@openright\cleardoublepage\else\clearpage\fi 
     % must clear page here, so that phantomsection\addcontentsline is on the correct page
-    \phantomsection%
+    %\phantomsection%
     \addcontentsline{toc}{chapter}%
       {\texorpdfstring{\Makeuppercase{\refname}}{\refname}}
 %    \bibliographystyle{gatech-thesis}
-    \begin{doublespaced}
+    %\begin{doublespaced}
     \bibliography{\@bibfiles}
-    \end{doublespaced}
+    %\end{doublespaced}
   \fi
 }
 
@@ -2822,7 +2838,7 @@ openright,doublespaced,normalmargins,final}
 %% Tech format (all caps, center of page)
 %%
 \renewenvironment{thebibliography}[1]{
-  { \chapter*{\normalsize{\MakeUppercase{\refname}}}
+  { \chapter*{\normalsize{\textbf{\refname}}}
     \@mkboth{\scshape\MakeUppercase\refname}%
             {\scshape\MakeUppercase\refname}%
     \pagestyle{\body@pagestyle}% REFERENCES uses BODY pagestyle, not endmatter.
@@ -2831,6 +2847,10 @@ openright,doublespaced,normalmargins,final}
   }
   \list{\@biblabel{\@arabic\c@enumiv}}%
   { \settowidth\labelwidth{\@biblabel{#1}}%
+	%\addtocounter{page}{0} 
+	%\phantomsection%
+	\addcontentsline{toc}{chapter}%
+	{\texorpdfstring{\textbf{Bibliography}}{Bibliography}}
       \leftmargin\labelwidth
       \advance\leftmargin\labelsep
       \@openbib@code
@@ -2838,6 +2858,7 @@ openright,doublespaced,normalmargins,final}
       \let\p@enumiv\@empty
       \renewcommand\theenumiv{\@arabic\c@enumiv}
   }%
+  \newlinestretch{1.0}%
   \sloppy
   \clubpenalty4000
   \@clubpenalty \clubpenalty
@@ -2955,7 +2976,7 @@ openright,doublespaced,normalmargins,final}
     }%
     \def\chaptermark##1{%
       \markboth
-      {\MakeUppercase{%
+      {\textbf{%
         \ifnum\c@secnumdepth >\m@ne%
           \@chapapp\ \thechapter. \ %
         \fi ##1}%
@@ -2963,7 +2984,7 @@ openright,doublespaced,normalmargins,final}
     }%
     \def\sectionmark##1{%
       \markright%
-      {\MakeUppercase{%
+      {\textbf{%
         \ifnum\c@secnumdepth >\z@%
           \thesection. \ %
         \fi ##1}%
@@ -3222,6 +3243,18 @@ openright,doublespaced,normalmargins,final}
 \setlength{\oddsidemargin}{1.5in}
 \setlength{\evensidemargin}{1in}
 \setlength{\marginparwidth}{.75in}
+\setlength{\marginparsep}{.125in}
+%
+\or % set normal margins: 1.25 " left, 1" others (modified 04/04/18)
+%
+\addtolength{\textheight}{-2in}
+\setlength{\topmargin}{0.5in}
+\setlength{\headsep}{0.5in}
+\setlength{\footskip}{0.5in}
+\addtolength{\textwidth}{-2.in}
+\setlength{\oddsidemargin}{1.25in}
+\setlength{\evensidemargin}{0.75in}
+\setlength{\marginparwidth}{.5in}
 \setlength{\marginparsep}{.125in}
 %
 \fi%@marginsize

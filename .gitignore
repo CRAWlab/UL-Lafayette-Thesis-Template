@@ -1,1 +1,16 @@
 .DS_Store
+*.blg
+
+*.bbl
+
+*.aux
+
+*.log
+
+*.lot
+
+*.lof
+
+*.toc
+
+*.gz
