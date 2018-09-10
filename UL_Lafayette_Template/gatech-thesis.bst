@@ -273,13 +273,40 @@ FUNCTION {format.title.p}
   if$
 }
 
+%FUNCTION {n.dashify}
+%{ 't :=
+ % ""
+ %   { t empty$ not }
+ %   { t #1 #1 substring$ "-" =
+%	{ t #1 #2 substring$ "--" = not
+%	    { "--" *
+%	      t #2 global.max$ substring$ 't :=
+%	    }
+%	    {   { t #1 #1 substring$ "-" = }
+%		{ "-" *
+%		  t #2 global.max$ substring$ 't :=
+%		}
+%	      while$
+%	    }
+%	  if$
+%	}
+%	{ t #1 #1 substring$ *
+%	  t #2 global.max$ substring$ 't :=
+%	}
+%      if$
+%    }
+%  while$
+%}
+
+% modified n.dashify function to meet ULL grad school requirements (Fall 17)
+	% use hyphen between page numbers instead of em dash
 FUNCTION {n.dashify}
 { 't :=
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
 	{ t #1 #2 substring$ "--" = not
-	    { "--" *
+	    { "-" *
 	      t #2 global.max$ substring$ 't :=
 	    }
 	    {   { t #1 #1 substring$ "-" = }

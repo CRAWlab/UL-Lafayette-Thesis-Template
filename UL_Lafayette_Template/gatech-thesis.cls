@@ -27,7 +27,7 @@
 %% if there are significant LaTeX syntax errors I apologize. I gave this my best shot.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\gtthesisversion}{1.9}% current version number
+\newcommand{\gtthesisversion}{1.9.2}% current version number
 \newcommand{\gtthesisupdated}{2018/04/04}% date of last change(s)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -56,7 +56,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%  REVISION HISTORY:
-%%
+%%  v1.9.2: 2018-Jul-08 Gerald Eaglin - geaglin2012@gmail.com
+%%      * Make chapter headings on a single line in accordance with Guidelines for the
+%%	      Preparation and Submission of Theses at ULL (2017)
 %%	v1.9: 2018-Apr-04 Daniel M. Newman - danielnewman09@gmail.com
 %%		* Updated this template to be compatible with currrent (Fall 2017)
 %%		  Guidelines for the Preparation and Submission of Theses at ULL
@@ -1125,6 +1127,12 @@ openright,doublespaced,normalmargins,final}
 
 \newcommand{\degree}[1]%
   {\ifx\empty#1\empty\else\gdef\@degree{#1}\fi}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define whether this is a thesis, dissertation, or anything else
+\newcommand{\worktype}[1]%
+  {\ifx\empty#1\empty\else\gdef\@worktype{#1}\fi}
+
 %
 %% Is this a thesis, or a thesis proposal ?
 %
@@ -1448,7 +1456,8 @@ openright,doublespaced,normalmargins,final}
        Presented to\\
        The Academic Faculty\\
     \else
-       A \ifdissertation Dissertation\else Thesis\fi\\
+       %A \ifdissertation Dissertation\else Thesis\fi\\
+       A \@worktype\\
        \ \\
        Presented to the\\
        \ \\
@@ -1589,11 +1598,14 @@ openright,doublespaced,normalmargins,final}
        {\leftmargin=3.0em \itemindent=-3.0em \itemsep=-1em}
         \item \@lastnamefirstname.\ \@undergrad, \@undergraduniversity, \@undergradyear; \@degree, University of Louisiana at Lafayette, \@submitdate \\%%
         \item Major: \@major\\
-        \item Title of Thesis: \@title\\
+        % \item Title of Thesis: \@title\\
+        \item Title of \@worktype: \@title\\
         %\ \\%
         %\ \\%
-        \item Thesis Director: Dr. \@chairforabstract\\
-        \item Pages in Thesis \@totalpagesinthesis; Words in Abstract: \@wordsinabstract
+        % \item Thesis Director: Dr. \@chairforabstract\\
+        \item \@worktype\ Director: Dr. \@chairforabstract\\
+        % \item Pages in Thesis: \@totalpagesinthesis; Words in Abstract: \@wordsinabstract
+        \item Pages in \@worktype: \@totalpagesinthesis; Words in Abstract: \@wordsinabstract
         \end{list}
     %\end{center}%
     \end{singlespaced}%
@@ -2497,23 +2509,42 @@ openright,doublespaced,normalmargins,final}
     \@afterheading
   \fi
 }
+% Make chapter headings on single line
 \def\@makechapterhead#1{%
   \ifnum \@marginsize = 4 % oldmargins
     \vspace*{50\p@}%
   \fi
   { \parindent \z@ \raggedright \normalfont
     \ifnum \c@secnumdepth >\m@ne
-      \centering \large \bfseries \@chapapp\space \thegtchapter
+      \centering \large \bfseries \@chapapp\space \thegtchapter \hskip 7\p@ \textbf{#1}
       \par\nobreak
-      \vskip 30\p@
+      \vskip 6\p@
     \fi
     %\vskip -0.25in
-    \vskip -0.37in
-    \interlinepenalty\@M
-    \centering \textbf{#1}\par\nobreak
+    %\vskip -0.37in
+    %\interlinepenalty\@M
+    %\centering \textbf{#1}\par\nobreak
     %\vskip 30\p@
-    \vskip 0.08in
+    %\vskip 0.08in
   }
+% Make chapter headings with chapter number and title on separate lines
+%\def\@makechapterhead#1{%
+%  \ifnum \@marginsize = 4 % oldmargins
+%    \vspace*{50\p@}%
+%  \fi
+%  { \parindent \z@ \raggedright \normalfont
+%    \ifnum \c@secnumdepth >\m@ne
+%      \centering \large \bfseries \@chapapp\space \thegtchapter
+%      \par\nobreak
+%      \vskip 30\p@
+%    \fi
+%    %\vskip -0.25in
+%    \vskip -0.37in
+%    \interlinepenalty\@M
+%    \centering \textbf{#1}\par\nobreak
+%    %\vskip 30\p@
+%    \vskip 0.08in
+%  }
 }
 \def\chap@schapter#1{%
   \if@twocolumn

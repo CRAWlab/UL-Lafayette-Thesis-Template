@@ -6,6 +6,8 @@ _Forrest Montgomery Jul 17, 2017_
 
 _Modified by Daniel Newman Apr 4, 2018_
 
+_Modified by Gerald Eaglin Sept 10, 2018_
+
 This latex template attempts to aid in the formatting of a ULL style thesis.
 
 Some helpful latex tips:
@@ -22,28 +24,6 @@ Give up on getting personally stylistic with this thesis. The Grad School wants 
   \label{fig:wreckage}
 \end{figure}
 ```
-### Multiline Math
-
-```tex
-\begin{equation}
-\begin{multlined}[t]
-\label{eq:q_coefficnets}
-g_0^i U_0(s_i)(a_{00} + a_{10}e^{-s_iT}+...+a_{\ell0}e^{-s_i \ell T})\\
-+g_1^i U_1(s_i)(a_{01} + a_{11}e^{-s_iT}+...+a_{\ell1}e^{-s_i \ell T}) + ...\\
-g_m^i U_m(s_i)(a_{0m} + a_{1m}e^{-s_iT}+...+a_{\ell m}e^{-s_i \ell T}) = 0
-\end{multlined}
-\end{equation}
-```
-### Huge Multiline Math
-
-_use the package breqn which will automatically break the equation_
-
-```tex
-\begin{dmath}
-% really long equation
-\end{dmath}
-```
-
 
 ### Subfigures (adjust the 0.52 to make the figures fit)
 
@@ -72,6 +52,54 @@ _use the package breqn which will automatically break the equation_
 \label{fig:nat_freq_pen}
 \end{figure}
 ```
+
+### Minipage for separate but related figures
+
+```tex
+\begin{figure}[tb]
+\begin{center}
+  \begin{minipage}{0.45\columnwidth}
+  \begin{center}
+  \includegraphics[width = \textwidth]{Figures/Chapter1_fig/Discrete_Grid_lines_2}
+  \caption{Grid representation}
+  \label{fig:Grid}
+  \end{center}
+  \end{minipage}
+\hspace{0.07\textwidth}
+  \begin{minipage}{0.45\textwidth}
+  \begin{center}
+  \includegraphics[width = \columnwidth]{Figures/Chapter1_fig/Polygon_workspace_2}
+  \caption{Polygonal representation}
+  \label{fig:Polygonal}
+  \end{center}
+  \end{minipage}
+\end{center}
+\vspace{-0.2in}
+\end{figure}
+```
+
+### Multiline Math
+
+```tex
+\begin{equation}
+\begin{multlined}[t]
+\label{eq:q_coefficnets}
+g_0^i U_0(s_i)(a_{00} + a_{10}e^{-s_iT}+...+a_{\ell0}e^{-s_i \ell T})\\
++g_1^i U_1(s_i)(a_{01} + a_{11}e^{-s_iT}+...+a_{\ell1}e^{-s_i \ell T}) + ...\\
+g_m^i U_m(s_i)(a_{0m} + a_{1m}e^{-s_iT}+...+a_{\ell m}e^{-s_i \ell T}) = 0
+\end{multlined}
+\end{equation}
+```
+### Huge Multiline Math
+
+_use the package breqn which will automatically break the equation_
+
+```tex
+\begin{dmath}
+% really long equation
+\end{dmath}
+```
+
 
 ### Annotating Images
 

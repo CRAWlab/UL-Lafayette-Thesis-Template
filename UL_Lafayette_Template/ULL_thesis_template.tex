@@ -10,8 +10,13 @@
 % Modified:
 %	* 05/04/18 - Daniel Newman -- danielnewman09@gmail.com
 %		- Made this template compliant with Fall 2017 Graduate school guidelines
+%	* 0/9/10/18 - Gerald Eaglin -- geaglin2012@gmail.com
+% 		- Minor changes to match recently updated style guide
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \documentclass[12pt,normalmargins]{gatech-thesis}
+% Uncomment if the grad school asks you to change from Computer Modern (standard Latex font family)
+% \usepackage{times}
+
 \usepackage{amsmath,amssymb,latexsym,float,epsfig}
 \usepackage{subcaption}
 \usepackage{booktabs}
@@ -20,7 +25,7 @@
 \usepackage{cite}
 \usepackage{bm}
 \usepackage{tikz}
-\usepackage{titlesec}
+% \usepackage{titlesec}
 \usepackage{etoolbox}
 
 % If you have a Linux distribution of LaTeX
@@ -33,7 +38,7 @@
 
 \usepackage{tocloft}
 \usepackage{indentfirst}
-\usepackage{etoolbox}
+% \usepackage{etoolbox}
 \definecolor{1c1}{RGB}{188,162,6}
 \usepackage{ULL-style}
 \usepackage[shortcuts]{extdash}
@@ -41,7 +46,8 @@
 % Make sure that the caption labels are bold face
 \usepackage[labelfont=bf]{caption}
 
-% Make the captions just the way the grad school wants them
+% Make the captions just the way the grad school wants them :)
+% TODO: This may be able to go directly in the style file
 \captionsetup[figure]{name={Figure},labelsep=period}
 \captionsetup[table]{labelsep=period}
 
@@ -64,16 +70,19 @@
 \lastnamefirstname{Montgomery, Forrest}
 
 % ex: {Name}[Position] use \\ if you need a newline
+% TODO: Template currently does not accept more than two readers
 \committeechair{Joshua E. Vaughan}[Assistant Professor of Mechanical Engineering]
 \firstreader{Paul Darby}[Assistant Professor of Electrical \\Engineering]
 \secondreader{Charles E. Taylor}[Assistant Professor of Mechanical Engineering]
 \deanofgradschool{Mary Farmer-Kaiser}[Dean of the Graduate School]
 
-\major{Engineering, Mechanical Engineering Concentration}
+% \major{Engineering, Mechanical Engineering Concentration}
+\major{Mechanical Engineering}
 \degree{Masters of Science}
 \undergrad{Bachelor of Science}
 \undergraduniversity{University of Louisiana at Lafayette}
 \undergradyear{Spring 2015}
+\worktype{Thesis} % or Dissertation, or Whatever
 
 % Must be less than 300
 \wordsinabstract{185}
@@ -154,12 +163,14 @@
 % Appendices
 %%%%%%%%%%%%%%%%
 %\appendix
-%\input{appendix.tex}
+\input{appendix.tex}
 
 %%%%%%%%%%%%%%%%
 % References
 %%%%%%%%%%%%%%%%
 
+% In bibliography entries, be consistent with whether or not you abreviate months
+% Use only one hyphen between page numbers
 \begin{postliminary}
 \bibliography{library.bib}
 \end{postliminary}
