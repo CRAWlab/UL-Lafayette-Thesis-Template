@@ -2273,15 +2273,15 @@ openright,doublespaced,normalmargins,final}
 % the LPPL; David has explicitly given permission to include
 % it here, under the GPL.
 % START OF DAVID CARLISLE'S CODE
-\newcommand{\@removefromreset}[2]{{%
-  \expandafter\let\csname c@#1\endcsname\@removefromreset
-  \def\@elt##1{%
-    \expandafter\ifx\csname c@##1\endcsname\@removefromreset
-    \else
-      \noexpand\@elt{##1}%
-    \fi}%
-  \expandafter\xdef\csname cl@#2\endcsname{%
-    \csname cl@#2\endcsname}}}
+%\newcommand{\@removefromreset}[2]{{%
+%  \expandafter\let\csname c@#1\endcsname\@removefromreset
+%  \def\@elt##1{%
+%    \expandafter\ifx\csname c@##1\endcsname\@removefromreset
+%    \else
+%      \noexpand\@elt{##1}%
+%    \fi}%
+%  \expandafter\xdef\csname cl@#2\endcsname{%
+%    \csname cl@#2\endcsname}}}
 % END OF DAVID CARLISLE'S CODE
 %%%%% See http://www.tex.ac.uk/cgi-bin/texfaq2html?label=running-nos
 
